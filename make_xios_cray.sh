@@ -1,30 +1,25 @@
 #################################################
-# Script to checkout and compile XIOS2.5
+# Script to compile XIOS2.5
 # Tested on revision 2022, following instructions provided https://docs.archer2.ac.uk/research-software/nemo/nemo/#compiling-xios-and-nemo
 #
 # Note that a precompiled version of XIOS2.5 is available for use here:
 # /work/n01/shared/acc/xios-2.5
 #################################################
 
-#
-module unload cray-mpich
-module load craype-network-ucx
-module load cray-mpich-ucx
-module load libfabric
-module load cray-hdf5-parallel
-module load cray-netcdf-hdf5parallel
-module load gcc
+# Build XIOS with Cray compiler
+module -s restore /work/n01/shared/acc/n01_modules/ucx_env
+module load cmake
 
-XIOS_DIR=/home/n01/n01/dapa/code/xios2.5
-svn checkout http://forge.ipsl.jussieu.fr/ioserver/svn/XIOS/branchs/xios-2.5 $XIOS_DIR
+XIOS_DIR=$CODE_DIR/xios
+XIOS_INSTALL=$CODE_DIR/xios-cray
 cd $XIOS_DIR
 
 # Copy arch files
-cp /work/n01/shared/acc/xios-2.5/arch/arch-X86_ARCHER2-Cray* $XIOS_DIR/arch/
+cp $CODE_DIR/extra-files/xios/arch-X86_ARCHER2-Cray* $XIOS_DIR/arch/
+cp $CODE_DIR/extra-files/xios/Config_cray.pm $XIOS_DIR/tools/FCM/lib/Fcm/Config.pm
 
+export CC=cc export CXX=CC export FC=ftn export F77=ftn export F90=ftn
+cd $XIOS_DIR && ./make_xios --prod --arch X86_ARCHER2-Cray --netcdf_lib netcdf4_par --job 16 --full
+rsync -a $XIOS_DIR/bin $XIOS_DIR/inc $XIOS_DIR/lib $XIOS_INSTALL
 
-
-# Compile
-./make_xios --prod --arch X86_ARCHER2-Cray --netcdf_lib netcdf4_par --job 16 --full
-
-
+cd $WORK

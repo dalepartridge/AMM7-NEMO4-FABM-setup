@@ -24,3 +24,4 @@ cmake $FABM_DIR/src -DFABM_HOST=nemo -DFABM_ERSEM_BASE=$ERSEM_DIR -DFABM_EMBED_V
 make
 make install -j4
 
+cd $WORK

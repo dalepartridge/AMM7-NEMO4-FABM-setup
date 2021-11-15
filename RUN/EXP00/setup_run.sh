@@ -11,7 +11,7 @@ cp $CODE_DIR/xios-${compiler}/bin/xios_server.exe .
 
 ln -s ../../INPUTS/DOM/coordinates.bdy.nc .
 ln -s ../../INPUTS/DOM/coordinates.skagbdy.nc .
-ln -s ../../INPUTS/DOM/domain_cfg .
+ln -s ../../INPUTS/DOM/domain_cfg.nc .
 
 ln -s ../../INPUTS/DOM/restart.nc .
 ln -s ../../INPUTS/DOM/restart_trc.nc .

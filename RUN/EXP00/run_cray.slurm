@@ -11,8 +11,8 @@
 # Created by: mkslurm -S 4 -s 16 -m 2 -C  96 -c  2 -t 00:10:00 -a n01 -j nemo_test
 
 module -s restore /work/n01/shared/acc/n01_modules/ucx_env
-
 export OMP_NUM_THREADS=1
+export UCX_IB_REG_METHODS=direct
 #
 cat > myscript_wrapper2.sh << EOFB
 #!/bin/ksh

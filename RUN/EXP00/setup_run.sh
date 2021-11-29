@@ -17,3 +17,5 @@ ln -s ../../INPUTS/DOM/restart.nc .
 ln -s ../../INPUTS/DOM/restart_trc.nc .
 
 ln -s ../../INPUTS/RIV/LOCATE_rivers.2005.alk.nc river.nc
+
+mkdir RESTART

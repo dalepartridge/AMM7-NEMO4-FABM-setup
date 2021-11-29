@@ -4,7 +4,7 @@ This repository contains the setup needed to run the AMM7 domain for NEMO-FABM-E
 
 set_paths.sh
 ------------
-Set the working directory
+Set the environment and working directory, always run before running any scripts
 
 clone_repositories.sh
 ---------------------
@@ -26,4 +26,4 @@ setup_run.sh, fabm_input.nml, namelist_cfg and namelist_top_cfg all contain rela
 
 INPUTS/{DOM,LBC,RIV,SBC}
 ------------------------
-Contains larger netcdf files not included with the repository. Available from /work/n01/n01/dapa/AMM7-NEMO4/. Please put in the working directory at the same level as the RUN folder so as to maintin the relative links in the run configuration files. 
+Contains larger netcdf files not included with the repository. Available from /work/n01/n01/dapa/AMM7-NEMO4/. Please put in the working directory at the same level as the RUN folder so as to maintain the relative links in the run configuration files. 

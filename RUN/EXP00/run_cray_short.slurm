@@ -1,13 +1,13 @@
 #!/bin/bash
 #SBATCH --job-name=nemo_test
-#SBATCH --time=13:00:00
+#SBATCH --time=00:20:00
 #SBATCH --nodes=2
 #SBATCH --ntasks=100
 #SBATCH --account=n01-PML
 #SBATCH --partition=standard
-#SBATCH --qos=standard
-##SBATCH --reservation=shortqos
-##SBATCH --qos=short
+##SBATCH --qos=standard
+#SBATCH --reservation=shortqos
+#SBATCH --qos=short
 # Created by: mkslurm -S 4 -s 16 -m 2 -C  96 -c  2 -t 00:10:00 -a n01 -j nemo_test
 
 module -s restore /work/n01/shared/acc/n01_modules/ucx_env
